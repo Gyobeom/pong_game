@@ -1,19 +1,29 @@
 # 1 . 배경 만들기
-from turtle import Screen
+from turtle import Screen,Turtle
 from paddle import Paddle
+import time
 
 
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong")
-right_paddle = Paddle()
-# right_paddle.right_paddle()
+screen.tracer(0)
 
-# screen.listen()
-# screen.onkey(right_paddle.up_paddle,"Up")
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
+
+screen.listen()
+screen.onkey(r_paddle.up_paddle, "Up")
+screen.onkey(r_paddle.down_paddle, "Down")
+screen.onkey(l_paddle.up_paddle, "w")
+screen.onkey(l_paddle.down_paddle, "s")
 
 
+
+game_is_on = True
+while game_is_on:
+    screen.update()
 
 
 
