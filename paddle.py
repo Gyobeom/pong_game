@@ -6,7 +6,7 @@ RIGHT = 0
 
 
 
-class Paddle:
+class Paddle(Turtle):
     def __init__(self, pos):
         position = pos
         super().__init__()

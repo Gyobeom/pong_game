@@ -15,8 +15,6 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
-ball.first_move()
-
 
 screen.listen()
 screen.onkey(r_paddle.up_paddle, "Up")
@@ -28,10 +26,12 @@ screen.onkey(l_paddle.down_paddle, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.01)
-    ball.first_move()
+    time.sleep(0.1)
+    ball.move()
     screen.update()
-
+    #벽 만나면 튕기기
+    if ball.ycor() > 280 or ball.ycor() <-280 :
+        ball.bounce()
 
 
 
